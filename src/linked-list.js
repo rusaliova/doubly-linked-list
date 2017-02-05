@@ -16,7 +16,7 @@ class LinkedList {
       else {
         this._tail.next=node;
       }
-      this._tail=node;
+      this._tail = node;
       this.length ++;
     }
 
@@ -92,9 +92,35 @@ class LinkedList {
     }
 
 
-    clear() {}
+    clear() {
+      if (this._head==null && this._tail==null) 
+        return null;
+      if (this.length = 0)
+        return this.length = 0;
+      if (node !=null){
+        if (node == null)
+            return;
+        else 
+          var node = new Node(data,this.prev,this.next);
+          this.clear (data); 
+      }
+    }
 
-    deleteAt(index) {}
+    deleteAt(index) {
+      var node = this.deleteAt(index);
+      if (node == null){
+        if (index<0)
+          return; 
+      }
+      else{
+        var i = 0;
+      while (i<index) {
+        node = node.next;
+        i++;
+        node = this.node.deleteAt (data); 
+        }
+      }
+    }  
 
     reverse() {}
 
