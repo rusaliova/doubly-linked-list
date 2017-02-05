@@ -1,19 +1,96 @@
 const Node = require('./node');
 
 class LinkedList {
-    constructor() {}
+    //private _head:Node;
+    //private _tail:Node;
 
-    append(data) {}
+    constructor() {
+      this.length = 0;
+    }
 
-    head() {}
+    append(data) {
+      var node = new Node(data,this._tail);
+      if (this._tail == null) {
+        this._head = node; 
+      }
+      else {
+        this._tail.next=node;
+      }
+      this._tail=node;
+      this.length ++;
+    }
 
-    tail() {}
+    head() {
+      if (this._head==null) 
+        return null;
+      return this._head.data;
+    }
 
-    at(index) {}
+    tail() {
+      if (this._tail==null)
+        return null;
+      return this._tail.data;
+    }
 
-    insertAt(index, data) {}
+    at(index) {
+      var node = this.nodeAt(index);
+      if (node == null)
+        return null;
+      return node.data;
+    }
 
-    isEmpty() {}
+    nodeAt (index) {
+      if (index<0)
+        return null;
+  
+      var i = 0;
+      var node = this._head;
+      while (i<index) {
+        if (node==null)
+          return null;
+        node = node.next;
+        i++;
+      }
+      return node;
+    }
+
+    insertAt(index, data) {
+      var node = this.nodeAt(index);
+      if (node == null){
+        if (index<0)
+          return;
+        if (index==0 && _tail==null)
+          this.append (data); 
+      }
+      else{
+        var newNode = new Node(data,node.prev,node);
+          node.prev = newNode;
+        if (newNode.prev !=null)
+          newNode.prev.next = newNode;
+        else 
+          this._head = newNode;
+      }
+    }
+
+    isEmpty() {
+      var node = this._head;
+        if (node == null)
+          return;        
+        if (index==0)
+          return true;
+        if (index!=0){
+          var i=0;
+          node = node.next;
+          i++;
+          return false;
+      }
+        else{
+          var node = this.nodeEmpty(index);
+          this.node = nodeEmpty;
+          return true;
+      }    
+    }
+
 
     clear() {}
 
@@ -23,5 +100,5 @@ class LinkedList {
 
     indexOf(data) {}
 }
-
+          
 module.exports = LinkedList;
