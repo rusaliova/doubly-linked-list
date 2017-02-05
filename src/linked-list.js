@@ -122,9 +122,26 @@ class LinkedList {
       }
     }  
 
-    reverse() {}
+    reverse() {
+      var node = this.nodeAt(index);
+      if (node == null){
+        if (index<0)
+          return;
+        if (index==0 && _tail==null)
+          this.append (data); 
+      }
+      else{
+        var reverseNode = new Node(data,node.prev,node);
+          node.next = newNode;
+        if (reverseNode.next !=null)
+          newNode.prev.next = reverseNode;
+        else 
+          this._tail = newNode;
+      }
+    }
 
     indexOf(data) {}
 }
           
 module.exports = LinkedList;
+
