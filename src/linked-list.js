@@ -101,24 +101,24 @@ class LinkedList {
         if (node == null)
             return;
         else 
-          var node = new Node(data,this.prev,this.next);
-          this.clear (data); 
+          var node = this.nodeClear;
+          this.node.data ==0; 
       }
     }
 
-    deleteAt(index) {
-      var node = this.deleteAt(index);
+    deleteAt(index) {    
       if (node == null){
         if (index<0)
           return; 
       }
       else{
+        var node = this.deleteAt(index);
         var i = 0;
-      while (i<index) {
+      while (i != index) {
         node = node.next;
         i++;
-        node = this.node.deleteAt (data); 
         }
+          node = this.node.deleteAt (data); 
       }
     }  
 
